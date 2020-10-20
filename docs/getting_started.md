@@ -63,11 +63,12 @@ You can use the following commands to infer a dataset.
 python tools/inference.py ${CONFIG_FILE} ${CHECKPOINT_FILE} [--out ${RESULT_FILE}]
 
 # multi-gpu inference
-./tools/dist_inference.sh ${CONFIG_FILE} ${CHECKPOINT_FILE} ${GPU_NUM} [--out ${RESULT_FILE}]
+./tools/dist_inference.sh ${CONFIG_FILE} ${CHECKPOINT_FILE} ${GPU_NUM} [--out ${RESULT_FILE}] [--gpu_collect]
 ```
 
 Optional arguments:
 - `RESULT_FILE`: Filename of the output results in pickle format. If not specified, the results will not be saved to a file.
+- `gpu_collect`: When inference or test on multiple machines, please enable this argument to collect results with GPUs, as the `tmp_dir` for CPU collection is not shared across machines.
 
 Examples:
 
